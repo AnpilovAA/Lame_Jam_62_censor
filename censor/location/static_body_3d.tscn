@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://bwx4xdj0saj5r"]
 
-[node name="Room" type="StaticBody3D" unique_id=1211731411]
+[ext_resource type="PackedScene" uid="uid://clh118sgmx8on" path="res://location/box.glb" id="1_wmct4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmct4"]
+size = Vector3(1, 0.005, 1)
+
+[node name="Floor" type="StaticBody3D" unique_id=1211731411]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1480121160]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.135, 0)
+shape = SubResource("BoxShape3D_wmct4")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=328189875]
+
+[node name="box" parent="Pivot" unique_id=2146741161 instance=ExtResource("1_wmct4")]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 1.995, 0)

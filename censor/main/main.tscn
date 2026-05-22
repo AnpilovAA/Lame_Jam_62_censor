@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://byl3yf5f7r7w0"]
 
-[ext_resource type="Script" uid="uid://mtt66m6aw3av" path="res://main/main.gd" id="1_53q0u"]
+[ext_resource type="PackedScene" uid="uid://bwx4xdj0saj5r" path="res://location/static_body_3d.tscn" id="2_c651c"]
+[ext_resource type="PackedScene" uid="uid://cva6bl62fgnco" path="res://player/player.tscn" id="3_xwkvk"]
 
 [node name="Main" type="Node" unique_id=287090677]
-script = ExtResource("1_53q0u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=809386548]
+transform = Transform3D(0.60042024, 0.013146978, 0.7995766, -0.79968464, 0.009871031, 0.6003391, 0, -0.9998649, 0.016440203, 0, 2.9116392, 3.2228274)
+shadow_enabled = true
+
+[node name="Floor" parent="." unique_id=1211731411 instance=ExtResource("2_c651c")]
+
+[node name="Player" parent="." unique_id=1120268175 instance=ExtResource("3_xwkvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0301129, 0)
