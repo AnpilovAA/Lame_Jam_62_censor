@@ -3,9 +3,13 @@ var SPEED = 20
 var fall_acceleration = 75
 var target_velocity = Vector3.ZERO
 
-func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if InputEventMouseMotion
 
+func _unhandled_input(event: InputEvent) -> void:
+	var velocity = Vector3.ZERO
+	if event is InputEventMouseMotion:
+		print(event)
+		$Pivot/tipsya.rotate_y(float(event.relative.x))
+	pass
 
 func _physics_process(delta: float) -> void:
 	var velocity = Vector3.ZERO
