@@ -3,13 +3,16 @@ extends CharacterBody3D
 var SPEED = 2
 var fall_acceleration = 75
 var target_velocity = Vector3()
-var mouse_motion = Vector2.ZERO
+var mouse_sensetive = 0.005
+
+#func _process(delta: float) -> void:
+	#Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		print(event)
-		$Pivot/tipsya.rotate_y(float(event.relative.x))
-		#$Pivot.basis = Basis.looking_at(0,event.relative.x, 0)
+		# Вот тут нормальная камера по движению мыши. осталось ограничить
+		rotation.y -= event.relative.x * mouse_sensetive
+		rotation.x += -event.relative.y * mouse_sensetive
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -22,9 +25,10 @@ func _physics_process(delta: float) -> void:
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
+	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Pivot.basis = Basis.looking_at(direction)
+		#$Pivot.basis = Basis.looking_at(direction)
 
 	target_velocity.x = direction.x * SPEED
 	target_velocity.z = direction.z * SPEED
