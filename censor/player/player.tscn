@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bqvfdt5cklqg7" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://cka2n7ka60g0r" path="res://player/tipsya.glb" id="2_rkbax"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_oul6g"]
-radius = 0.7
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rkbax"]
+height = 1.980957
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 resource_name = "walk"
@@ -31,7 +31,8 @@ transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, 0, 0, 0)
 transform = Transform3D(3.7037036, 0, 0, 0, 3.7037036, 0, 0, 0, 3.7037036, 0, 1.8075296, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1398700636]
-shape = SubResource("SphereShape3D_oul6g")
+transform = Transform3D(0.705, 0, 0, 0, 0.705, 0, 0, 0, 0.705, 0, -0.06, 0)
+shape = SubResource("CylinderShape3D_rkbax")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1580050971]
 libraries/ = SubResource("AnimationLibrary_g1dw6")
